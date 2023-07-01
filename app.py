@@ -101,7 +101,7 @@ def predict():
 # Render the HTML page
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return 'Welcome To My Application'
 
 
 if __name__ == '__main__':
