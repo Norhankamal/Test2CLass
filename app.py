@@ -2,11 +2,17 @@ from flask import Flask, request, jsonify, render_template
 import cv2
 import numpy as np
 import joblib
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, BatchNormalization
+#from tensorflow.keras.models import Sequential
+from keras.models import Sequential
+from keras.layers import Conv2D, MaxPooling2D, Flatten, BatchNormalization
 
 app = Flask(__name__)
 app.config['ALLOWED_EXTENSIONS'] = set(['png', 'jpg', 'jpeg'])
+
+# Render the HTML page
+@app.route('/')
+def index():
+    return 'Welcome To My Application'
 
 # Dictionary to track prediction status for each image
 prediction_status = {}
@@ -96,13 +102,6 @@ def predict():
         return jsonify({'predicted_label': predicted_label})
     else:
         return jsonify({'error': 'Invalid file'})
-
-
-# Render the HTML page
-@app.route('/')
-def index():
-    return 'Welcome To My Application'
-
 
 if __name__ == '__main__':
     app.run()
