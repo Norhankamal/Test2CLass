@@ -29,6 +29,7 @@ ml-dtypes==0.2.0
 numpy==1.23.5
 oauthlib==3.2.2
 opencv-python==4.6.0.66
+opencv-python-headless==4.8.0.74
 opt-einsum==3.3.0
 packaging==23.1
 protobuf==4.23.3
