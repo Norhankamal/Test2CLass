@@ -14,6 +14,9 @@ app.config['ALLOWED_EXTENSIONS'] = set(['png', 'jpg', 'jpeg'])
 def index():
     return 'Welcome To My Application'
 
+# Load your RF model here
+loaded_modelRF = joblib.load(open('RF2Class.pkl', 'rb'))
+
 # Dictionary to track prediction status for each image
 prediction_status = {}
 
@@ -47,7 +50,7 @@ def load_and_predict_image(image_data):
     feature_extractor.add(Flatten())
 
     # Load your RF model here
-    loaded_modelRF = joblib.load(open('RF2Class.pkl', 'rb'))
+    #loaded_modelRF = joblib.load(open('RF2Class.pkl', 'rb'))
 
     # Read the input image
     img = cv2.imdecode(np.frombuffer(image_data, np.uint8), cv2.IMREAD_COLOR)
